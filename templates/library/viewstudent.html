@@ -2,104 +2,153 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Registered Students</title>
 
     <style media="screen">
-    table.redTable {
-border: 2px solid #A40808;
-background-color: #EEE7DB;
-width: 100%;
-text-align: center;
-border-collapse: collapse;
-}
-table.redTable td, table.redTable th {
-border: 1px solid #AAAAAA;
-padding: 3px 2px;
-}
-table.redTable tbody td {
-font-size: 13px;
-}
-table.redTable tr:nth-child(even) {
-background: #F5C8BF;
-}
-table.redTable thead {
-background: #A40808;
-}
-table.redTable thead th {
-font-size: 19px;
-font-weight: bold;
-color: #FFFFFF;
-text-align: center;
-border-left: 2px solid #A40808;
-}
-table.redTable thead th:first-child {
-border-left: none;
-}
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7f9;
+      }
 
-table.redTable tfoot {
-font-size: 13px;
-font-weight: bold;
-color: #FFFFFF;
-background: #A40808;
-}
-table.redTable tfoot td {
-font-size: 13px;
-}
-table.redTable tfoot .links {
-text-align: right;
-}
-table.redTable tfoot .links a{
-display: inline-block;
-background: #FFFFFF;
-color: #A40808;
-padding: 2px 8px;
-border-radius: 5px;
-}
+      h3 {
+        font-size: 50px;
+        text-align: center;
+        background-color: #6c5ce7;
+        color: white;
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      table.redTable {
+        border: none;
+        background-color: #ffffff;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        border-collapse: collapse;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      table.redTable th, table.redTable td {
+        border: 1px solid #dddddd;
+        padding: 15px;
+        text-align: center;
+        font-size: 16px;
+        color: #333;
+      }
+
+      table.redTable thead {
+        background-color: #81ecec;
+      }
+
+      table.redTable thead th {
+        font-size: 18px;
+        font-weight: bold;
+        color: #2d3436;
+        padding: 20px;
+      }
+
+      table.redTable tbody tr:nth-child(even) {
+        background-color: #dfe6e9;
+      }
+
+      table.redTable tbody tr:nth-child(odd) {
+        background-color: #f1f2f6;
+      }
+
+      table.redTable tbody td {
+        font-size: 16px;
+        padding: 20px;
+        color: #2d3436;
+      }
+
+      table.redTable tbody tr:hover {
+        background-color: #ffeaa7;
+        transition: background-color 0.3s ease-in-out;
+        cursor: pointer;
+      }
+
+      table.redTable tfoot {
+        background-color: #81ecec;
+        color: white;
+        font-size: 14px;
+      }
+
+      table.redTable tfoot td {
+        padding: 15px;
+      }
+
+      table.redTable .links a {
+        color: #6c5ce7;
+        background-color: #fff;
+        padding: 8px 12px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: 0.3s ease;
+      }
+
+      table.redTable .links a:hover {
+        background-color: #6c5ce7;
+        color: white;
+      }
+
+      h1 {
+        text-align: center;
+        color: #e17055;
+        font-size: 24px;
+        margin-top: 20px;
+      }
+
+      /* Footer spacing */
+      footer {
+        margin-top: 50px;
+      }
     </style>
   </head>
   <body>
     {% include "library/navbaradmin.html" %}
-    <br>
-    <br>
-    <h3 class="p-3 mb-2 bg-primary text-white" style = 'font-size: 50px;text-align:center;'>Student registered in Library !</h3>
 
-    {% if students%}
-<table class="redTable">
-<thead>
-<tr>
-<th>Name</th>
-<th>Enrollment</th>
-<th>Branch</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td colspan="3">
-<div class="links"></div>
-</td>
-</tr>
-</tfoot>
-<tbody>
-  {% for s in students %}
-    <tr>
-      <td>{{s.get_name}}</td>
-      <td>{{s.enrollment}}</td>
-      <td>{{s.branch}}</td>
+    <h3>Students Registered in Library</h3>
 
-    </tr>
+    {% if students %}
+      <table class="redTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Enrollment</th>
+            <th>Branch</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in students %}
+            <tr>
+              <td>{{ s.get_name }}</td>
+              <td>{{ s.enrollment }}</td>
+              <td>{{ s.branch }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">
+              <div class="links">
+                <!-- Add pagination or other links if needed -->
+              </div>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    {% else %}
+      <h1>No Students Registered in Library</h1>
+    {% endif %}
 
-  {% endfor %}
-</tbody>
-</table>
-{%else%}
-<h1> No Student Registered in Library</h1>
-{%endif%}
-
-
-
-<br><br><br><br><br><br>
-
-<br><br><br>
-  {% include "library/footer.html" %}
+    <br><br><br>
+    {% include "library/footer.html" %}
   </body>
 </html>

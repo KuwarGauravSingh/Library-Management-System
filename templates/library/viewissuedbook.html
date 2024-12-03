@@ -2,105 +2,175 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Issued Books to Students</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
     <style media="screen">
-    table.redTable {
-border: 2px solid #A40808;
-background-color: #EEE7DB;
-width: 100%;
-text-align: center;
-border-collapse: collapse;
-}
-table.redTable td, table.redTable th {
-border: 1px solid #AAAAAA;
-padding: 3px 2px;
-}
-table.redTable tbody td {
-font-size: 13px;
-}
-table.redTable tr:nth-child(even) {
-background: #F5C8BF;
-}
-table.redTable thead {
-background: #A40808;
-}
-table.redTable thead th {
-font-size: 19px;
-font-weight: bold;
-color: #FFFFFF;
-text-align: center;
-border-left: 2px solid #A40808;
-}
-table.redTable thead th:first-child {
-border-left: none;
-}
+      /* New Table Styling */
+      table.issueTable {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        background-color: #f9f9f9;
+        margin-top: 30px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      table.issueTable th, table.issueTable td {
+        padding: 15px;
+        font-size: 14px;
+        color: #333;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      table.issueTable th {
+        background-color: #4CAF50; /* Vibrant Green */
+        color: white;
+        font-weight: bold;
+        text-align: center;
+      }
+      table.issueTable tr:nth-child(even) {
+        background-color: #e2f7e2; /* Light green */
+      }
+      table.issueTable tr:nth-child(odd) {
+        background-color: #ffffff; /* White background for odd rows */
+      }
+      table.issueTable tr:hover {
+        background-color: #d1e8d1; /* Slightly darker green on hover */
+      }
+      table.issueTable tfoot {
+        background-color: #4CAF50;
+        color: white;
+        font-size: 14px;
+      }
+      table.issueTable tfoot td {
+        padding: 10px;
+      }
+      table.issueTable caption {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+      }
 
-table.redTable tfoot {
-font-size: 13px;
-font-weight: bold;
-color: #FFFFFF;
-background: #A40808;
-}
-table.redTable tfoot td {
-font-size: 13px;
-}
-table.redTable tfoot .links {
-text-align: right;
-}
-table.redTable tfoot .links a{
-display: inline-block;
-background: #FFFFFF;
-color: #A40808;
-padding: 2px 8px;
-border-radius: 5px;
-}
+      /* Page Styling */
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f4f7f6;
+        color: #333;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 80px; /* Added to ensure space for footer */
+      }
+      .content-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 20px;
+        background-color: #007BFF;
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 1.8rem;
+        color: #A40808;
+      }
+
+      /* Footer Styling */
+      .footer {
+        background-color: #A40808;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+      }
+
+      /* Button Styling */
+      .btn-custom {
+        background-color: #A40808;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        border: none;
+        transition: background-color 0.3s ease;
+      }
+      .btn-custom:hover {
+        background-color: #6e0707;
+      }
+
+      /* Center Button */
+      .btn-center {
+        display: block;
+        margin: 20px auto;
+        width: 200px;
+      }
+
     </style>
   </head>
   <body>
+
+    <!-- Navbar -->
     {% include "library/navbaradmin.html" %}
-    <br>
-    <br>
-    <h3 class="p-3 mb-2 bg-primary text-white" style = 'font-size: 50px;text-align:center;margin-bottom:0px;'>Issued books to Student !</h3>
 
-{% if li%}
-    <table class="redTable">
-    <thead>
-    <tr>
-    <th>Student Name</th>
-    <th>Student Enrollment</th>
-    <th>Book Name</th>
-    <th>Book Author</th>
-    <th>Issue Date</th>
-    <th>Expiry Date</th>
-    <th>Fine</th>
-    </tr>
-    </thead>
-    <tfoot>
-    <tr>
-    <td colspan="7">
-    <div class="links"></div>
-    </td>
-    </tr>
-    </tfoot>
-    <tbody>
-      {% for t in li %}
+    <!-- Title Section -->
+    <h3 class="content-title">Issued Books to Students</h3>
+
+    <!-- Table Section -->
+    {% if li %}
+    <table class="issueTable">
+      <caption>Issued Books Information</caption>
+      <thead>
         <tr>
-          <td>{{t.0}}</td>
-          <td>{{t.1}}</td>
-          <td>{{t.2}}</td>
-          <td>{{t.3}}</td>
-          <td>{{t.4}}</td>
-          <td>{{t.5}}</td>
-          <td>{{t.6}}</td>
+          <th>Student Name</th>
+          <th>Student Enrollment</th>
+          <th>Book Name</th>
+          <th>Book Author</th>
+          <th>Issue Date</th>
+          <th>Expiry Date</th>
+          <th>Fine</th>
         </tr>
-        {%endfor%}
-    </tbody>
+      </thead>
+      <tfoot>
+        <tr>
+          <td colspan="7">
+            <div class="links"></div>
+          </td>
+        </tr>
+      </tfoot>
+      <tbody>
+        {% for t in li %}
+        <tr>
+          <td>{{ t.0 }}</td>
+          <td>{{ t.1 }}</td>
+          <td>{{ t.2 }}</td>
+          <td>{{ t.3 }}</td>
+          <td>{{ t.4 }}</td>
+          <td>{{ t.5 }}</td>
+          <td>{{ t.6 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
-    {%else%}
-    <h1> 0 book Issued</h1>
-    {%endif%}
+    {% else %}
+    <h1>No books have been issued yet.</h1>
+    {% endif %}
 
-    <br><br><br><br><br><br><br><br><br>
-  {% include "library/footer.html" %}
+    <!-- Footer -->
+    <div class="footer">
+      <p>&copy; 2024 Library Management System | All rights reserved</p>
+    </div>
+
   </body>
 </html>

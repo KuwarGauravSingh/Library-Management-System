@@ -46,4 +46,4 @@ class IssuedBook(models.Model):
     issuedate=models.DateField(auto_now=True)
     expirydate=models.DateField(default=get_expiry)
     def __str__(self):
-        return self.enrollment
+        return self.enrollment 

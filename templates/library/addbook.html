@@ -1,132 +1,112 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Mohammad burhan</title>
+    <title>Add Book</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
-
-
-    <style type="text/css">
-    	body{
-    		color: #aa082e;
-    		background-color: : #b6bde7 !important;
-    		font-family: 'Roboto', sans-serif;
-    	}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            color: #495057;
+            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+        }
         .form-control {
-    		border-color: #eee;
-            min-height: 41px;
-    		box-shadow: none !important;
-    	}
+            border-color: #ced4da;
+            border-radius: 0.25rem;
+            min-height: 45px;
+        }
         .form-control:focus {
-    		border-color: #5cd3b4;
-    	}
-        .form-control, .btn {
-            border-radius: 3px;
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
         }
-    	.signup-form {
-    		width: 500px;
-    		margin: 0 auto;
-    		padding: 30px 0;
-    	}
-        .signup-form h2 {
-    		color: #333;
-            margin: 0 0 30px 0;
-    		display: inline-block;
-    		padding: 0 30px 10px 0;
-    	    border-bottom: 3px solid #ffffff;
-        }
-        .signup-form form {
-    		color: #999;
-    		border-radius: 3px;
-        	margin-bottom: 15px;
-            background: #fff;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        .signup-form {
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
             padding: 30px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
-    	.signup-form .form-group {
-    		margin-bottom: 20px;
-    	}
-    	.signup-form label {
-    		font-weight: normal;
-    		font-size: 13px;
-    	}
-        .signup-form input[type="checkbox"] {
-    		margin-top: 2px;
-    	}
+        .signup-form h2 {
+            color: #343a40;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
         .signup-form .btn {
             font-size: 16px;
             font-weight: bold;
-    	background: #161df0;
-    		border: none;
-    		margin-top: 20px;
-    		min-width: 140px;
+            background: #007bff;
+            color: #fff;
+            border-radius: 25px;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
         }
-    	.signup-form .btn:hover, .signup-form .btn:focus {
-    		background: #41cba9;
-            outline: none !important;
-    	}
-        .signup-form a {
-    		color: #2b04ff;
-
-    		text-decoration: underline;
-    	}
-    	.signup-form a:hover {
-    		text-decoration: none;
-    	}
-        .signup-form form a {
-    		color: #5cd3b4;
-    		text-decoration: none;
-    	}
-    	.signup-form form a:hover {
-    		text-decoration: underline;
-    	}
+        .signup-form .btn:hover, .signup-form .btn:focus {
+            background: #0056b3;
+            outline: none;
+        }
+        .signup-form .form-group label {
+            font-weight: 500;
+            font-size: 14px;
+            color: #495057;
+        }
+        .text-center {
+            margin-top: 20px;
+        }
+        .text-center a {
+            color: #007bff;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .text-center a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+        .alert-success {
+            font-weight: bold;
+            font-size: 18px;
+            color: #28a745;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            text-align: center;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
     </style>
-
-
-
-
-
-
-  </head>
-  <body style="background-color:#b6bde7;">
+</head>
+<body>
     {% include "library/navbaradmin.html" %}
-    <br>
-    <br>
-<center><h3 style=" margin-bottom: 0px;"class = 'alert alert-success'>ADD BOOK IN LIBRARY !</h3></center>
-    <div class="signup-form">
-        <form  method="post" class="form-horizontal">
-
-    			<center><h2>ADD BOOK IN LIBRARY</h2></center>
-
-{% csrf_token %}
-
-            {% for field in form %}
-            <div class="form-group">
-              <label class="control-label col-xs-4">{{ field.label_tag }}</label>
-              <div class="col-xs-8">
-              {{ field }}
-               </div>
-            </div>
-            {% endfor %}
-
-
-    		<div class="form-group">
-    			<div class="col-xs-8 col-xs-offset-4">
-            <button type="submit" class="btn btn-primary btn-lg">ADD</button>
-    			</div>
-    		</div>
-        </form>
-    	<div class="text-center">View Available Book In Library<a href="viewbook">Click here</a></div>
+    <div class="container">
+        <div class="alert alert-success">ADD BOOK IN LIBRARY!</div>
+        <div class="signup-form">
+            <form method="post" class="form-horizontal">
+                <h2>ADD BOOK IN LIBRARY</h2>
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    <label class="control-label">{{ field.label_tag }}</label>
+                    <div>
+                        {{ field }}
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">ADD</button>
+                </div>
+            </form>
+            <div class="text-center">View Available Books in Library <a href="viewbook">Click here</a></div>
+        </div>
     </div>
-
-
-
-
     {% include "library/footer.html" %}
-  </body>
+</body>
 </html>

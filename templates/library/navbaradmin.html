@@ -2,37 +2,103 @@
 {% load static %}
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Navbar with Dropdown and Search Form</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Navbar with Dropdown and Search Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+    <style type="text/css">
+        .bs-example {
+            margin: 0px;
+        }
 
-<style type="text/css">
-    .bs-example{
-        margin: 0px;
+        /* Navbar Styling */
+        .navbar {
+            background: linear-gradient(to right, #1d2124, #343a40); /* Dark gradient background */
+            padding: 10px 20px;
+        }
 
-    }
-.navbar-brand{
-  font-size: 20px;
-  font-family: sans-serif;
+        .navbar-brand {
+            font-size: 24px;
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
 
-}
+        .navbar-brand:hover {
+            color: #5cd3b4; /* Light green hover effect */
+        }
 
+        .navbar-toggler-icon {
+            background-color: #ffffff;
+        }
 
-</style>
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 15px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #1d2124;
+            background-color: #5cd3b4; /* Light green hover background */
+            border-radius: 4px;
+        }
+
+        .navbar-nav .nav-item.active .nav-link {
+            color: #5cd3b4;
+            font-weight: bold;
+        }
+
+        .navbar-nav .dropdown-menu {
+            background: #343a40; /* Dark background for dropdown */
+            border: none;
+        }
+
+        .navbar-nav .dropdown-item {
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .navbar-nav .dropdown-item:hover {
+            background-color: #5cd3b4; /* Light green hover for dropdown items */
+            color: #1d2124; /* Dark text on hover */
+        }
+
+        .navbar-nav .dropdown-toggle::after {
+            color: #ffffff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 767px) {
+            .navbar-nav .nav-item {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 18px; /* Increase font size on smaller screens */
+            }
+
+            .navbar-brand {
+                font-size: 22px; /* Smaller font size for brand on small screens */
+            }
+        }
+    </style>
 </head>
 <body>
 
-
-
 <div class="bs-example">
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <a href="/" class="navbar-brand">Library Management</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -42,7 +108,7 @@
             <div class="navbar-nav">
                 <a href="/" class="nav-item nav-link active">Home</a>
 
-                <!--for book dropdown button-->
+                <!-- Book Dropdown -->
                 <div class="nav-item dropdown">
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Book</a>
                   <div class="dropdown-menu">
@@ -51,7 +117,7 @@
                   </div>
                 </div>
 
-                <!--for issuebook dropdown button-->
+                <!-- Issue Book Dropdown -->
                 <div class="nav-item dropdown">
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Issue Book</a>
                   <div class="dropdown-menu">
@@ -60,30 +126,23 @@
                   </div>
                 </div>
 
-                <!--for student dropdown button-->
+                <!-- Student Dropdown -->
                 <div class="nav-item dropdown">
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Student</a>
                   <div class="dropdown-menu">
                     <a href="viewstudent" class="dropdown-item">View Student</a>
                   </div>
                 </div>
-
-
             </div>
 
             <div class="navbar-nav">
-                <a href="logout" class="nav-item nav-link">LOGOUT</a> &nbsp
+                <a href="logout" class="nav-item nav-link">LOGOUT</a> &nbsp;
                 <a href="/aboutus" class="nav-item nav-link">About Us</a>
                 <a href="contactus" class="nav-item nav-link">Contact Us</a>
             </div>
-
-
-
-
         </div>
     </nav>
 </div>
-
 
 </body>
 </html>

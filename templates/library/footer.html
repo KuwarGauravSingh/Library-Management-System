@@ -1,79 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <style>
+        /*---------------------------------------
+           Social section
+        -----------------------------------------*/
+        footer {
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            margin: 0;
+        }
 
+        .fa {
+            padding: 15px;
+            font-size: 24px;
+            width: 60px;
+            text-align: center;
+            text-decoration: none;
+            margin: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+        }
 
+        .fa:hover {
+            opacity: 0.8;
+            transform: scale(1.1); /* Slightly enlarge the icon on hover */
+        }
 
-<style>
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
 
-/*---------------------------------------
-   Social section
------------------------------------------*/
-footer {
-    padding: 0px 0px 0px 0px;
-    background-color:black;
-    margin:0px;
-}
-.fa {
-  padding: 20px;
-  font-size: 23px;
-  width: 60px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  border-radius: 50%;
-}
+        .fa-whatsapp {
+            background: #25d366;
+            color: white;
+        }
 
-.fa:hover {
-    opacity: 0.5;
-    text-decoration: none;
-}
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
 
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-margin-top: 30px;
-}
-.fa-whatsapp {
-  background: #25d366;
-  color: white;
-}
-.fa-twitter {
-  background: #55ACEE;
-  color: white;
-}
-.fa-instagram {
-  background: #125688;
-  color: white;
-}
+        .fa-instagram {
+            background: #E4405F;
+            color: white;
+        }
 
-p{text-align:center;
+        .footer-copyright p {
+            font-size: 14px;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
 
-}
+        .footer-copyright a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-</style>
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .fa {
+                font-size: 20px;
+                padding: 12px;
+            }
+
+            .footer-copyright p {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
+<body>
 
 <footer>
-
-  <p>
-  <a href="" class="fa fa-facebook"></a>
-  <a href="https://api.whatsapp.com/send?phone=917036037203&text=Hello%20Mohammad%20Burhan.%0d%0aHow%20are%20you%20%3f%0d%0aI%20came%20from%20your%20website.&source=&data=#" class="fa fa-whatsapp"></a>
-  <a href="" class="fa fa-instagram"></a>
-  <a href="" class="fa fa-twitter"></a>
-  </p>
-
-<br>
-  <div class="container">
-    <div class="row">
-               <div class="col-md-12 col-sm-12">
-                    <div style="color:#ffffff;"class="wow fadeInUp footer-copyright">
-                         <p>Made in India <br>
-                         Copyright &copy;   2022  Mohammad Burhan </p>
-                    </div>
-               </div>
+    <!-- Social media icons -->
+    <div>
+        <a href="#" class="fa fa-facebook" target="_blank"></a>
+        <a href="#" class="fa fa-whatsapp" target="_blank"></a>
+        <a href="#" class="fa fa-instagram" target="_blank"></a>
+        <a href="#" class="fa fa-twitter" target="_blank"></a>
     </div>
-  </div>
+
+    <!-- Copyright and Footer Text -->
+    <div class="footer-copyright">
+        <p>Made in India<br>
+        Copyright &copy; 2024 <a href="#">Kuwar Gaurav Singh</a></p>
+    </div>
 </footer>
 
+</body>
 </html>

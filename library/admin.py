@@ -13,4 +13,4 @@ admin.site.register(StudentExtra, StudentExtraAdmin)
 
 class IssuedBookAdmin(admin.ModelAdmin):
     pass
-admin.site.register(IssuedBook, IssuedBookAdmin)
+admin.site.register(IssuedBook, IssuedBookAdmin)  

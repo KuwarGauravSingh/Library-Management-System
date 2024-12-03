@@ -1,55 +1,132 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-<style media="screen">
-.btn-circle.btn-xl {
-  width: 70px;
-  height: 70px;
-  padding: 10px 16px;
-  border-radius: 35px;
-  font-size: 24px;
-  line-height: 1.33;
-}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student Dashboard</title>
 
-.btn-circle {
-  width: 30px;
-  height: 30px;
-  padding: 6px 0px;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.42857;
-}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        /* Overall body styling */
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
 
-.jumbotron{
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-.jumbotron h1{
-  text-align: center;
-}
+        /* Styling the jumbotron */
+        .jumbotron {
+            background: linear-gradient(to right, #4e73df, #224abe);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            margin-bottom: 30px;
+        }
 
+        .jumbotron h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
 
-</style>
-  </head>
-  <body>
+        .jumbotron p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .jumbotron hr {
+            border-color: #fff;
+            margin: 20px 0;
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: #5cd3b4;
+            border-color: #5cd3b4;
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #41cba9;
+            transform: translateY(-3px);
+        }
+
+        /* Adding some shadow and hover effect to the options */
+        .options a {
+            display: inline-block;
+            margin-top: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .options a:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Centering the page content */
+        .content {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .alert-success {
+            background-color: #5cd3b4;
+            border-color: #5cd3b4;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Custom styles for the heading and footer */
+        .footer {
+            background-color: #224abe;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar for student (assumed it's already included in the navbarstudent.html) -->
     {% include "library/navbarstudent.html" %}
-    <br>
-    <br>
-    <center><h3 style=" margin-bottom: 0px;"class = 'alert alert-success'>Welcome to Online library !</h3></center>
-    <div class="jumbotron"   style="    margin-bottom: 0px;">
-    <h1 class="display-4">Hello {{user.first_name}} !</h1>
-    <p class="lead">As you are Student, you can see how many book you have taken from library with fine and many more ...!
-    </p>
-    <hr class="my-4">
-    <p>Option Available For You</p>
-    <div class="options" style="text-align:center">
-      <a href="viewissuedbookbystudent" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View issued book to you</a><br><br>
-        </div>
+    
+    <!-- Main content of the page -->
+    <div class="content">
+        <!-- Welcome message -->
+        <center><h3 class="alert alert-success" style="margin-bottom: 0px;">Welcome to the Online Library, {{ user.first_name }}!</h3></center>
 
+        <!-- Jumbotron section with welcome text -->
+        <div class="jumbotron">
+            <h1 class="display-4">Hello {{ user.first_name }}!</h1>
+            <p class="lead">
+                As a student, you can view the books you've borrowed from the library along with any fines, and more!
+            </p>
+            <hr class="my-4">
+            <p>Here are your options:</p>
+
+            <!-- Options for the student -->
+            <div class="options">
+                <a href="viewissuedbookbystudent" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View Issued Books</a><br><br>
+            </div>
+        </div>
     </div>
 
-
+    <!-- Footer section (assumed it's included in the footer.html) -->
     {% include "library/footer.html" %}
-  </body>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
 </html>

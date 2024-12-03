@@ -2,148 +2,178 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Issued Books Information</title>
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-<style media="screen">
-table.redTable {
-border: 2px solid #A40808;
-background-color: #EEE7DB;
-width: 100%;
-text-align: center;
-border-collapse: collapse;
-}
-table.redTable td, table.redTable th {
-border: 1px solid #AAAAAA;
-padding: 3px 2px;
-}
-table.redTable tbody td {
-font-size: 13px;
-}
-table.redTable tr:nth-child(even) {
-background: #F5C8BF;
-}
-table.redTable thead {
-background: #A40808;
-}
-table.redTable thead th {
-font-size: 19px;
-font-weight: bold;
-color: #FFFFFF;
-text-align: center;
-border-left: 2px solid #A40808;
-}
-table.redTable thead th:first-child {
-border-left: none;
-}
+    <style media="screen">
+      /* Table Styling */
+      table.issueTable {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 30px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fafafa;
+      }
+      table.issueTable th, table.issueTable td {
+        padding: 12px;
+        font-size: 14px;
+        color: #555;
+        border: 1px solid #ddd;
+        text-align: center;
+        border-radius: 5px;
+      }
+      table.issueTable th {
+        background-color: #4CAF50; /* Bright Green */
+        color: white;
+        font-weight: bold;
+      }
+      table.issueTable tr:nth-child(even) {
+        background-color: #e8f5e9; /* Light Green */
+      }
+      table.issueTable tr:nth-child(odd) {
+        background-color: #ffffff; /* White */
+      }
+      table.issueTable tr:hover {
+        background-color: #d7f5d7; /* Darker green on hover */
+      }
 
-table.redTable tfoot {
-font-size: 13px;
-font-weight: bold;
-color: #FFFFFF;
-background: #A40808;
-}
-table.redTable tfoot td {
-font-size: 13px;
-}
-table.redTable tfoot .links {
-text-align: right;
-}
-table.redTable tfoot .links a{
-display: inline-block;
-background: #FFFFFF;
-color: #A40808;
-padding: 2px 8px;
-border-radius: 5px;
-}
-</style>
+      /* Column Styling */
+      table.issueTable .column-heading {
+        text-align: center;
+        background-color: #388E3C; /* Darker Green */
+        color: white;
+        font-weight: bold;
+      }
 
+      /* Page Styling */
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f4f7f6;
+        color: #333;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .content-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 20px;
+        background-color: #007BFF;
+        color: white;
+        border-radius: 8px;
+        margin-top: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 1.8rem;
+        color: #A40808;
+      }
+
+      /* Footer Styling */
+      .footer {
+        background-color: #A40808;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+      }
+
+      /* Responsive Grid */
+      .row {
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .col-lg-6 {
+        padding: 0;
+        padding-right: 15px;
+      }
+      .col-lg-6:last-child {
+        padding-left: 15px;
+      }
+
+    </style>
   </head>
   <body>
-  {% include "library/navbarstudent.html" %}<br><br>
-  <h3 class="p-3 mb-2 bg-primary text-white" style = 'font-size: 50px;text-align:center;'>Book Issued To You !</h3>
 
-<div class="row">
+    <!-- Navbar -->
+    {% include "library/navbarstudent.html" %}
 
-  <div class="col-lg-6" style="padding-right:0px;">
-    {% if li1%}
-    <table class="redTable">
-  <thead>
-  <tr>
-  <th>Name</th>
-  <th>Enrollment</th>
-  <th>Branch</th>
-    <th>Book Name</th>
-      <th>Book Author</th>
-  </tr>
-  </thead>
-  <tfoot>
-  <tr>
-  <td colspan="5">
-  <div class="links"></div>
-  </td>
-  </tr>
-  </tfoot>
-  <tbody>
-    {% for t in li1 %}
-<tr>
-  <td>  {{t.0}}</td>
-  <td>  {{t.1}}</td>
-  <td>  {{t.2}}</td>
-  <td>  {{t.3}}</td>
-  <td>  {{t.4}}</td>
-</tr>
+    <!-- Title Section -->
+    <h3 class="content-title">Books Issued to You</h3>
 
-    {% endfor %}
-  </tbody>
-  </table>
+    <div class="row">
+      <!-- Left Column - Book Information -->
+      <div class="col-lg-6">
+        {% if li1 %}
+        <table class="issueTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Enrollment</th>
+              <th>Branch</th>
+              <th>Book Name</th>
+              <th>Book Author</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for t in li1 %}
+            <tr>
+              <td>{{ t.0 }}</td>
+              <td>{{ t.1 }}</td>
+              <td>{{ t.2 }}</td>
+              <td>{{ t.3 }}</td>
+              <td>{{ t.4 }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <h1>No books issued to you</h1>
+        {% endif %}
+      </div>
 
-</div>
+      <!-- Right Column - Issue Details -->
+      <div class="col-lg-6">
+        {% if li2 %}
+        <table class="issueTable">
+          <thead>
+            <tr>
+              <th>Issue Date</th>
+              <th>Expiry Date</th>
+              <th>Fine</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for t in li2 %}
+            <tr>
+              <td>{{ t.0 }}</td>
+              <td>{{ t.1 }}</td>
+              <td>{{ t.2 }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <h1>No books issued to you</h1>
+        {% endif %}
+      </div>
+    </div>
 
-<div class="col-lg-6" style="padding-left:0px;">
+    <!-- Footer -->
+    <div class="footer">
+      <p>&copy; 2024 Library Management System | All rights reserved</p>
+    </div>
 
-      <table class="redTable">
-    <thead>
-    <tr>
-    <th>Issue Date</th>
-    <th>Expiry Date</th>
-    <th>Fine</th>
-    </tr>
-    </thead>
-    <tfoot>
-    <tr>
-    <td colspan="5">
-    <div class="links"></div>
-    </td>
-    </tr>
-    </tfoot>
-    <tbody>
-      {% for t in li2 %}
-<tr>
-  <td>  {{t.0}}</td>
-  <td>  {{t.1}}</td>
-  <td>  {{t.2}}</td>
-</tr>
-
-
-
-
-      {% endfor %}
-    </tbody>
-    </table>
-    {%else%}
-    <h1> No book Issued to you</h1>
-    {%endif%}
-
-</div></div>
-
-
-
-
-
-
-<br><br><br><br><br><br>
-<br><br><br>
-  {% include "library/footer.html" %}
   </body>
 </html>

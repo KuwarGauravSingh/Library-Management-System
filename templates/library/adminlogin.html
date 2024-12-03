@@ -3,127 +3,161 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Mohammad Burhan</title>
+    <title>Kuwar Gaurav Singh - Admin Login</title>
+    
+    <!-- Bootstrap and Font Awesome CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- jQuery and Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
     <style type="text/css">
-    	body {
-    		color: #aa082e;
-    			background-color:#b6bde7;
-    		font-family: 'Roboto', sans-serif;
-    	}
-        .form-control {
-    		border-color: #eee;
-            min-height: 41px;
-    		box-shadow: none !important;
-    	}
-        .form-control:focus {
-    		border-color: #5cd3b4;
-    	}
-        .form-control, .btn {
-            border-radius: 3px;
+      /* Full page flexbox layout to ensure footer sticks to the bottom */
+      html, body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        color: #333;
+        background: linear-gradient(to bottom right, #6a11cb, #2575fc); /* Gradient background */
+        font-family: 'Roboto', sans-serif;
+      }
+
+      /* Main content area should take all the available height */
+      .content-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centering form vertically */
+        align-items: center;
+      }
+
+      /* Centering the login form */
+      .signup-form {
+        width: 100%;
+        max-width: 450px;
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 12px; /* Rounded corners */
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      }
+
+      /* Form heading and title */
+      .signup-form h2 {
+        color: #333;
+        font-weight: 700;
+        margin-bottom: 30px;
+        font-size: 24px;
+      }
+
+      /* Form control styles */
+      .form-control {
+        border-color: #eee;
+        min-height: 45px;
+        box-shadow: none !important;
+        transition: all 0.3s;
+      }
+
+      .form-control:focus {
+        border-color: #6a11cb;
+        box-shadow: 0px 0px 8px rgba(106, 17, 203, 0.3);
+      }
+
+      /* Button styling */
+      .btn-primary {
+        background-color: #6a11cb;
+        border: none;
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 30px;
+        transition: all 0.3s;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #2575fc;
+        transform: translateY(-3px);
+        box-shadow: 0px 6px 15px rgba(37, 117, 252, 0.3);
+      }
+
+      /* Styling for links */
+      .signup-form a {
+        color: #2575fc;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .signup-form a:hover {
+        text-decoration: underline;
+        color: #6a11cb;
+      }
+
+      /* Success message styling */
+      h3.alert-success {
+        color: #28a745;
+      }
+
+      /* Footer styles */
+      footer {
+        background-color: #343a40;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        margin-top: auto; /* Ensures footer stays at bottom */
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 576px) {
+        .signup-form {
+          padding: 20px;
         }
-    	.signup-form {
-    		width: 500px;
-    		margin: 0 auto;
-    		padding: 30px 0;
-    	}
+
         .signup-form h2 {
-    		color: #333;
-            margin: 0 0 30px 0;
-    		display: inline-block;
-    		padding: 0 30px 10px 0;
-    	    border-bottom: 3px solid #ffffff;
+          font-size: 20px;
         }
-        .signup-form form {
-    		color: #999;
-    		border-radius: 3px;
-        	margin-bottom: 15px;
-            background: #fff;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-            padding: 30px;
-        }
-    	.signup-form .form-group {
-    		margin-bottom: 20px;
-    	}
-    	.signup-form label {
-    		font-weight: normal;
-    		font-size: 13px;
-    	}
-        .signup-form input[type="checkbox"] {
-    		margin-top: 2px;
-    	}
-        .signup-form .btn {
-            font-size: 16px;
-            font-weight: bold;
-    	background: #161df0;
-    		border: none;
-    		margin-top: 20px;
-    		min-width: 140px;
-        }
-    	.signup-form .btn:hover, .signup-form .btn:focus {
-    		background: #41cba9;
-            outline: none !important;
-    	}
-        .signup-form a {
-    		color: #2b04ff;
 
-    		text-decoration: underline;
-    	}
-    	.signup-form a:hover {
-    		text-decoration: none;
-    	}
-        .signup-form form a {
-    		color: #5cd3b4;
-    		text-decoration: none;
-    	}
-    	.signup-form form a:hover {
-    		text-decoration: underline;
-    	}
+        .btn-primary {
+          font-size: 14px;
+          padding: 10px 20px;
+        }
+      }
     </style>
-
-
-
-
-
-
   </head>
+
   <body>
     {% include "library/navbar.html" %}
-    <br>
-    <br>
-<center><h3 style=" margin-bottom: 0px;"class = 'alert alert-success'>Login As Admin!</h3></center>
-    <div class="signup-form">
-        <form  method="post" class="form-horizontal">
 
-    			<center><h2>Admin Login</h2></center>
+    <!-- Main content wrapper -->
+    <div class="content-wrapper">
+      <div class="signup-form">
+        <center><h3 class="alert alert-success">Login As Admin!</h3></center>
+
+        <form method="post" class="form-horizontal">
+          <h2 class="text-center">Admin Login</h2>
 
           {% csrf_token %}
-            {% for field in form %}
-            <div class="form-group">
-              <label class="control-label col-xs-4">{{ field.label_tag }}</label>
-              <div class="col-xs-8">
-              {{ field }}
-               </div>
-            </div>
-            {% endfor %}
+          {% for field in form %}
+          <div class="form-group">
+            <label class="control-label">{{ field.label_tag }}</label>
+            {{ field }}
+          </div>
+          {% endfor %}
 
-    		<div class="form-group">
-    			<div class="col-xs-8 col-xs-offset-4">
-            <button type="submit" class="btn btn-primary btn-lg">Login</button>
-    			</div>
-    		</div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
+          </div>
         </form>
-    	<div class="text-center">Do not have account? <a href="adminsignup">Signup here</a></div>
+
+        <div class="text-center">Don't have an account? <a href="adminsignup">Sign up here</a></div>
+      </div>
     </div>
 
-
-
-    {% include "library/footer.html" %}
+    <!-- Sticky footer -->
+    <footer>
+      {% include "library/footer.html" %}
+    </footer>
   </body>
 </html>
